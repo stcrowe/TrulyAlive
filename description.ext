@@ -1,0 +1,9 @@
+class CfgFunctions
+{
+	#include "TA\cfgFunctions.hpp"
+};
+
+class CfgNotifications
+{
+	//#include "AICommand\cfgnotifications.hpp"
+};
