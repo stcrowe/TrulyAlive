@@ -34,7 +34,7 @@ while {true} do
 		_marker = _cityModule getVariable "marker";
 		_markerPos = getMarkerPos _marker;
 
-		if ([_markerPos, 200] call GAIA_fnc_isNearPlayer) then
+		if ([_markerPos, 200] call TA_fnc_nearPlayer) then
 		{
 			_numCivilianSelection = count(configFile >> "CfgVehicles" >> "Civilian_F");
 

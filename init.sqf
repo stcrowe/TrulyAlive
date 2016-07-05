@@ -13,7 +13,7 @@ if (isServer) then
 
 	//format ["Name %1", count _commandersModules] remoteExecCall ["hint", [0, -2] select isMultiplayer];
 
-	call compile preprocessfile "gaia\gaia_init.sqf";
+	// call compile preprocessfile "gaia\gaia_init.sqf";
 
 	//[] call TA_fnc_initTA;
 

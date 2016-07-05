@@ -1,3 +1,5 @@
+params [["_marker", nil], ["_centerSeeking", false]];
+
 _marker = param [0, nil];
 _newPosition = nil;
 
@@ -29,7 +31,16 @@ if (!isNil "_marker") then
 
 			_minX = _cenX - (_sizeX);
 
-			_varX = random (_sizeX*2);
+			_varX = 0;
+
+			if (_centerSeeking) then
+			{
+				_varX = random [0, _sizeX, (_sizeX*2)];
+			}
+			else
+			{
+				_varX = random (_sizeX*2);
+			};
 
 			_posX = _minX + _varX;
 
@@ -39,7 +50,18 @@ if (!isNil "_marker") then
 
 			_minY = _cenY - (_sizeY);
 
-			_varY = random (_sizeY*2);
+			_varY = 0;
+
+			if (_centerSeeking) then
+			{
+				_varY = random [0, _sizeY, (_sizeY*2)];
+			}
+			else
+			{
+				_varY = random (_sizeY*2);
+			};
+
+			[_varY] call TA_fnc_debugLog;
 
 			_posY = _minY + _varY;
 

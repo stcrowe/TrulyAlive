@@ -9,6 +9,7 @@ class TA
       class registerCity {};
       class cityManager {};
       class initCity {};
+      class getRandomCivilianClass {};
   };
   class CommonFunctions
 	{
@@ -35,6 +36,13 @@ class TA
       class randomPositionInMarker {};
       class rotateTranslation2d {};
       class rotateVector2d {};
+  };
+
+  class Profiler
+  {
+      file = "TA\functions\profiler";
+
+      class nearPlayer {};
   };
 
   class Test

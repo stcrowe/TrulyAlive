@@ -4,6 +4,10 @@ if (!isNil("PROFILER_INIT")) exitWith {};
 
 PROFILER_INIT = true;
 
+publicVariableServer "PROFILER_INIT";
+
+
+
 while {true} do
 {
 	sleep 1;

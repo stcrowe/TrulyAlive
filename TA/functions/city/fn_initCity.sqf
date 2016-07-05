@@ -6,51 +6,17 @@ _pop = _cityModule getVariable "population";
 
 // Create citizens
 
-_pop = 144;
+_pop = 122;
 
 // Get a list of class based on faction
 _faction = _cityModule getVariable "faction";
 
-// List of units that are blacklisted (thanks BI)
-_blackList = ["C_journalist_F", "C_man_pilot_F", "C_scientist_F", "C_Soldier_VR_F"];
-
-_classes = nil;
-
-if (_faction  == "CIV_F") then
-{
-	_classes = Format["(getText (_x >> 'faction')) == '%1' && (getText (_x >> 'vehicleClass') == 'Men') && !(getText (_x >> 'DLC') == 'Kart')", _faction ] configClasses (configFile >> "CfgVehicles");
-}
-else
-{
-
-	_classes = Format["getText (_x >> 'faction') == '%1' && getText (_x >> 'vehicleClass') == 'Men'", _faction ] configClasses (configFile >> "CfgVehicles");
-};
-
-_civilianClasses = [];
-{
-	_civilianClasses append [configName _x];
-} forEach _classes;
-
-
-_civilian = "C_man_pilot_F";
-
-while {(_civilian in _blackList)} do
-{
-	_civilian = selectRandom _civilianClasses;
-};
-
-
+// Create civilians in city
 while {_pop >= 0} do
 {
+	_newPosition = [_cityModule getVariable "marker", true] call TA_fnc_randomPositionInMarker;
 
-	_civilian = "C_man_pilot_F";
-
-	while {(_civilian in _blackList)} do
-	{
-		_civilian = selectRandom _civilianClasses;
-	};
-
-	_newPosition = [_cityModule getVariable "marker"] call TA_fnc_randomPositionInMarker;
+	_civilian = [_faction] call TA_fnc_getRandomCivilianClass;
 
 	if (!(isNil "_newPosition")) then
 	{

@@ -56,7 +56,6 @@ if (_clockwise) then
 // What is our current angle from 0?
 _currentAngle = _translateY atan2 _translateX;
 
-[[_currentAngle, _angle]] call TA_fnc_debugLog;
 
 // If angle is between 181 and 356, the results will be negative - so for angle of 225, it gets returned as -135
 if (_currentAngle < 0) then
